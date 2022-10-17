@@ -16,6 +16,9 @@ select distinct m.date, m.geo,AVG(m.impressions)::float as impressions, AVG(m.cl
 right outer join marketing_data m
 on m.date = s.date and m.geo = SUBSTRING(s.store_location, 15) group by m.geo, m.date order by 1;
 
+[NOTE: since, all the records from each table are needed, there are some records in the store_revenue table for which there is no data in the marketing_data and vice versa, hence UNION operation performed to fetch all records, and display as NULL for no data fields]
+
+
 <b>Question 4:</b><br>
 with click_revenue as (
 select distinct m.date, m.geo,AVG(m.impressions)::float as impressions, AVG(m.clicks)::float as clicks, SUM(s.revenue) as revenue from store_revenue s 
@@ -24,7 +27,7 @@ on m.date = s.date and m.geo = SUBSTRING(s.store_location, 15) group by m.geo, m
 select c.geo, SUM(c.revenue)/(SUM(c.clicks)/SUM(c.impressions)) as revenue_per_click_through, SUM(c.clicks)/SUM(c.impressions) as click_through_rate from click_revenue c  group by c.geo order by 2 desc;
 
 Metric Used:<br>
-Metric Used to Evaluate:Click through rate proportional to Revenue<br>
+Click through rate proportional to Revenue<br>
 Conversion rate of clicks proportional to Revenue<br>
 Assuming product costs common for all stores<br>
 Thus,<br>

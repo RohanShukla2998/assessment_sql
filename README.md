@@ -16,7 +16,7 @@ select distinct m.date, m.geo,AVG(m.impressions)::float as impressions, AVG(m.cl
 right outer join marketing_data m
 on m.date = s.date and m.geo = SUBSTRING(s.store_location, 15) group by m.geo, m.date order by 1;
 
-[NOTE: since, all the records from each table are needed, there are some records in the store_revenue table for which there is no data in the marketing_data and vice versa, hence UNION operation performed to fetch all records, and display as NULL for no data fields]
+[NOTE: since, all the records from each table are needed, there are some records in the store_revenue table for which there is no data in the marketing_data and vice versa, hence UNION operation performed to fetch all records, and display as NULL for missing data fields]
 
 
 <b>Question 4:</b><br>

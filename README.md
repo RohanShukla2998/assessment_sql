@@ -23,6 +23,15 @@ join marketing_data m
 on m.date = s.date and m.geo = SUBSTRING(s.store_location, 15) group by m.geo, m.date)
 select c.geo, SUM(c.revenue)/(SUM(c.clicks)/SUM(c.impressions)) as revenue_per_click_through, SUM(c.clicks)/SUM(c.impressions) as click_through_rate from click_revenue c  group by c.geo order by 2 desc;
 
+Metric Used:<br>
+Metric Used to Evaluate:Click through rate proportional to Revenue<br>
+Conversion rate of clicks proportional to Revenue<br>
+Assuming product costs common for all stores<br>
+Thus,<br>
+CTR*Conv. Rate * Cost ~ Revenue<br>
+Conv. Rate ~ Revenue/CTR<br>
+
+
 <b>Question 5:</b><br>
 select SUBSTRING(s.store_location,15) as states, SUM(s.revenue)::float as revenue from store_revenue s
 group by s.store_location order by 2 desc limit 10;

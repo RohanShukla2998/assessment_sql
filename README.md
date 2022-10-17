@@ -33,6 +33,7 @@ Assuming product costs common for all stores<br>
 Thus,<br>
 CTR*Conv. Rate * Cost ~ Revenue<br>
 Conv. Rate ~ Revenue/CTR<br>
+Hence, CA has the best conversion rate, making it the most efficient store
 
 
 <b>Question 5:</b><br>

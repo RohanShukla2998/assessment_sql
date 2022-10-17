@@ -16,7 +16,7 @@ CSV HEADER;
 
 -- *  Question #1
 -- Generate a query to get the sum of the clicks of the marketing data
-select sum(m.clicks) from marketing_data m;
+select sum(m.clicks) as sum_of_clicks from marketing_data m;
 
 -- *  Question #2
 --  Generate a query to gather the sum of revenue by store_location from the store_revenue table

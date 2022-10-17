@@ -1,2 +1,5 @@
-# assessment_sql
-SQL assessment - marketing data and store revenue
+# SQL - Assessment
+Data Provided: store_revenue and marketing_data
+
+
+
